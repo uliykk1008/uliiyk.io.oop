@@ -3,156 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OOP Dart - Uliya Gumpari</title>
+<title>Laporan OOP Dart - Uliya Gumpari</title>
 
 <style>
 body{
-    margin:0;
-    font-family:Segoe UI, sans-serif;
-    background:#0f1117;
-    color:#eee;
-    overflow-x:hidden;
+  margin:0;
+  font-family:Segoe UI,sans-serif;
+  background:#0f1117;
+  color:white;
+  text-align:center;
 }
 
-/* Background Particles */
-#particles-js{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    background:#0f1117;
-}
-
-/* Header */
 header{
-    text-align:center;
-    padding:60px 20px;
+  padding:80px 20px;
 }
 
-header h1{
-    color:#d4af37;
-    letter-spacing:2px;
+h1{
+  color:#d4af37;
+  letter-spacing:2px;
 }
 
-/* Container */
-.container{
-    width:85%;
-    margin:40px auto;
+.menu{
+  margin-top:40px;
 }
 
-/* Card */
-.card{
-    background:rgba(28,31,43,0.9);
-    padding:30px;
-    margin-bottom:30px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
+a{
+  display:inline-block;
+  margin:15px;
+  padding:15px 25px;
+  background:#d4af37;
+  color:#111;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  transition:0.3s;
 }
 
-/* Button */
-button{
-    padding:12px 20px;
-    margin:10px 10px 10px 0;
-    border:none;
-    border-radius:25px;
-    background:#d4af37;
-    color:#111;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#f1c75b;
-    box-shadow:0 0 15px #d4af37;
-}
-
-/* Output */
-.output{
-    margin-top:20px;
-    background:#000;
-    padding:15px;
-    border-radius:10px;
-    font-family:monospace;
-    color:#00ff99;
-    min-height:100px;
+a:hover{
+  background:#f1c75b;
+  box-shadow:0 0 15px #d4af37;
 }
 
 footer{
-    text-align:center;
-    padding:30px;
-    color:#777;
+  margin-top:60px;
+  color:#888;
 }
 </style>
 </head>
 
 <body>
 
-<div id="particles-js"></div>
-
 <header>
-    <h1>OOP DART PROJECT</h1>
-    <p>Nama : Uliya Gumpari</p>
-    <p>NIM : 251410008</p>
+<h1>LAPORAN OOP DART</h1>
+<p>Nama : Uliya Gumpari</p>
+<p>NIM  : 251410008</p>
+<p>IPK  : 3,87</p>
 </header>
 
-<div class="container">
-<div class="card">
-<h2>Pilih Program</h2>
-
-<button onclick="runCar()">Run Contoh Car</button>
-<button onclick="runMahasiswa()">Run Contoh Mahasiswa</button>
-
-<div class="output" id="output"></div>
-</div>
+<div class="menu">
+<a href="car.html">Materi Class Car</a>
+<a href="mahasiswa.html">Materi Class Mahasiswa</a>
+<a href="product.html">Materi Class Product</a>
 </div>
 
 <footer>
-© 2025 - Uliya Gumpari ✨ Elegant Theme
+© 2025 - Uliya Gumpari ✨ Elegant Version
 </footer>
-
-<!-- Script Output -->
-<script>
-function runCar(){
-    document.getElementById("output").innerText = `
-=== PROGRAM CAR ===
-Mobil Sedan warna Hitam dinyalakan.
-====================
-`;
-}
-
-function runMahasiswa(){
-    document.getElementById("output").innerText = `
-=== PROGRAM MAHASISWA ===
-Nama     : Uliya Gumpari
-NIM      : 251410008
-IPK      : 3.87
-Predikat : Cumlaude
-=========================
-`;
-}
-</script>
-
-<!-- Particles Background -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    color: { value: "#d4af37" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5 },
-    size: { value: 3 },
-    move: { enable: true, speed: 2 }
-  },
-  interactivity: {
-    events: {
-      onhover: { enable: true, mode: "repulse" }
-    }
-  }
-});
-</script>
 
 </body>
 </html>
