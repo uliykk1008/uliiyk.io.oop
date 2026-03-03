@@ -3,179 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tugas 2 - OOP Dart | Uliya Gumpari</title>
+<title>OOP Dart - Uliya Gumpari</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 body{
     margin:0;
-    font-family:'Poppins', sans-serif;
-    background: linear-gradient(135deg, #dfe9f3, #ffffff);
-    color:#333;
+    font-family:Segoe UI, sans-serif;
+    background:#0f1117;
+    color:#eee;
+    overflow-x:hidden;
 }
 
-/* COVER */
-.cover{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+/* Background Particles */
+#particles-js{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    background:#0f1117;
+}
+
+/* Header */
+header{
     text-align:center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color:white;
+    padding:60px 20px;
 }
 
-.cover h1{
-    font-size:40px;
-    margin-bottom:10px;
+header h1{
+    color:#d4af37;
+    letter-spacing:2px;
 }
 
-.cover p{
-    font-size:18px;
-    margin:5px 0;
-}
-
-/* CONTENT */
+/* Container */
 .container{
     width:85%;
-    margin:50px auto;
+    margin:40px auto;
 }
 
+/* Card */
 .card{
-    background:white;
+    background:rgba(28,31,43,0.9);
     padding:30px;
     margin-bottom:30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+/* Button */
+button{
+    padding:12px 20px;
+    margin:10px 10px 10px 0;
+    border:none;
+    border-radius:25px;
+    background:#d4af37;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
     transition:0.3s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
+button:hover{
+    background:#f1c75b;
+    box-shadow:0 0 15px #d4af37;
 }
 
-h2{
-    color:#6a5acd;
-    margin-bottom:15px;
-}
-
-pre{
-    background:#1e1e2f;
-    color:#00ffd5;
-    padding:20px;
-    border-radius:15px;
-    overflow-x:auto;
-}
-
-ul{
-    padding-left:20px;
+/* Output */
+.output{
+    margin-top:20px;
+    background:#000;
+    padding:15px;
+    border-radius:10px;
+    font-family:monospace;
+    color:#00ff99;
+    min-height:100px;
 }
 
 footer{
     text-align:center;
     padding:30px;
-    color:#666;
+    color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<!-- COVER -->
-<section class="cover">
-    <h1>TUGAS 2</h1>
-    <p>Object Oriented Programming - Dart</p>
-    <br>
-    <p><b>Nama :</b> Uliya Gumpari</p>
-    <p><b>NIM :</b> 251410008</p>
-</section>
+<div id="particles-js"></div>
 
-<!-- CONTENT -->
+<header>
+    <h1>OOP DART PROJECT</h1>
+    <p>Nama : Uliya Gumpari</p>
+    <p>NIM : 251410008</p>
+</header>
+
 <div class="container">
-
 <div class="card">
-<h2>1. Pengertian OOP</h2>
-<p>
-Object Oriented Programming (OOP) adalah paradigma pemrograman yang berfokus pada objek.
-Objek memiliki atribut (data) dan method (perilaku).
-</p>
+<h2>Pilih Program</h2>
+
+<button onclick="runCar()">Run Contoh Car</button>
+<button onclick="runMahasiswa()">Run Contoh Mahasiswa</button>
+
+<div class="output" id="output"></div>
 </div>
-
-<div class="card">
-<h2>2. Konsep Dasar</h2>
-<ul>
-<li>Kelas adalah blueprint atau cetakan objek.</li>
-<li>Objek adalah hasil dari kelas.</li>
-<li>Constructor digunakan untuk menginisialisasi data.</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>3. Implementasi Kode Dart</h2>
-
-<pre>
-class Mahasiswa {
-  String nama;
-  String nim;
-  double ipk;
-
-  Mahasiswa(this.nama, this.nim, this.ipk) {
-    if (ipk < 0.0 || ipk > 4.0) {
-      throw ArgumentError('IPK harus berada dalam rentang 0.0 - 4.0');
-    }
-  }
-
-  void tampilkanData() {
-    print('===== DATA MAHASISWA =====');
-    print('Nama  : $nama');
-    print('NIM   : $nim');
-    print('IPK   : ${ipk.toStringAsFixed(2)}');
-    print('Predikat : ${cekPredikat()}');
-    print('==========================');
-  }
-
-  String cekPredikat() {
-    if (ipk >= 3.75) {
-      return "Cumlaude";
-    } else if (ipk >= 3.50) {
-      return "Sangat Memuaskan";
-    } else if (ipk >= 3.00) {
-      return "Memuaskan";
-    } else {
-      return "Cukup";
-    }
-  }
-
-  @override
-  String toString() {
-    return 'Mahasiswa(nama: $nama, nim: $nim, ipk: ${ipk.toStringAsFixed(2)})';
-  }
-}
-
-void main() {
-  Mahasiswa mhs = Mahasiswa('Uliya Gumpari', '251410008', 3.87);
-  mhs.tampilkanData();
-  print(mhs);
-}
-</pre>
-
-</div>
-
-<div class="card">
-<h2>4. Kesimpulan</h2>
-<p>
-Dengan menggunakan konsep OOP di Dart, program menjadi lebih terstruktur,
-mudah dikembangkan, dan lebih rapi dalam pengelolaan data.
-</p>
-</div>
-
 </div>
 
 <footer>
-© 2025 - Uliya Gumpari ✨
+© 2025 - Uliya Gumpari ✨ Elegant Theme
 </footer>
+
+<!-- Script Output -->
+<script>
+function runCar(){
+    document.getElementById("output").innerText = `
+=== PROGRAM CAR ===
+Mobil Sedan warna Hitam dinyalakan.
+====================
+`;
+}
+
+function runMahasiswa(){
+    document.getElementById("output").innerText = `
+=== PROGRAM MAHASISWA ===
+Nama     : Uliya Gumpari
+NIM      : 251410008
+IPK      : 3.87
+Predikat : Cumlaude
+=========================
+`;
+}
+</script>
+
+<!-- Particles Background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#d4af37" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    move: { enable: true, speed: 2 }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "repulse" }
+    }
+  }
+});
+</script>
 
 </body>
 </html>
