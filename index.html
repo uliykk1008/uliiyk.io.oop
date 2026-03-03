@@ -3,77 +3,101 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laporan OOP - Uliya Gumpari</title>
+<title>OOP Report - Uliya Gumpari</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-  margin:0;
-  font-family:Segoe UI, sans-serif;
+  font-family:'Poppins',sans-serif;
   color:white;
   background:black;
   overflow-x:hidden;
 }
 
-/* Background Animasi Bintang */
-.stars{
-  width:1px;
-  height:1px;
-  background:white;
-  position:absolute;
-  animation:animStar 50s linear infinite;
-  box-shadow:
-  200px 300px white, 400px 600px white,
-  800px 200px white, 1200px 500px white,
-  600px 900px white, 1500px 300px white;
+/* Galaxy Background */
+body::before{
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:
+  radial-gradient(circle at 20% 30%,#001d3d,transparent 40%),
+  radial-gradient(circle at 80% 70%,#3a0ca3,transparent 40%),
+  radial-gradient(circle at 50% 50%,#000814,transparent 60%);
+  animation:moveGalaxy 50s linear infinite;
+  z-index:-2;
 }
 
-@keyframes animStar{
-  from{transform:translateY(0px);}
-  to{transform:translateY(-2000px);}
+@keyframes moveGalaxy{
+  from{transform:translate(0,0);}
+  to{transform:translate(-30%,-30%);}
+}
+
+/* Glass Card */
+section{
+  width:85%;
+  margin:100px auto;
+  padding:60px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(255,215,0,0.1);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 header{
   text-align:center;
-  padding:100px 20px;
-  background:linear-gradient(180deg,#000814,#001d3d);
+  padding:140px 20px 80px;
 }
 
-h1{
-  color:#ffd60a;
+header h1{
+  font-size:42px;
   letter-spacing:3px;
-}
-
-section{
-  padding:80px 12%;
-  background:rgba(0,0,0,0.85);
-  border-bottom:1px solid #222;
+  color:#ffd60a;
+  margin-bottom:20px;
 }
 
 h2{
   color:#ffd60a;
+  margin-bottom:20px;
+}
+
+p{
+  font-weight:300;
+  line-height:1.9;
 }
 
 button{
-  padding:12px 25px;
+  margin-top:25px;
+  padding:12px 35px;
   border:none;
-  border-radius:25px;
+  border-radius:30px;
   background:#ffd60a;
-  font-weight:bold;
+  font-weight:600;
   cursor:pointer;
   transition:0.3s;
 }
 
 button:hover{
-  background:#fff;
-  box-shadow:0 0 20px #ffd60a;
+  background:white;
+  box-shadow:0 0 25px #ffd60a;
 }
 
 a{text-decoration:none;}
 
 footer{
   text-align:center;
-  padding:40px;
-  background:#000814;
+  padding:60px;
   color:#aaa;
 }
 </style>
@@ -81,142 +105,117 @@ footer{
 
 <body>
 
-<div class="stars"></div>
-
 <header>
 <h1>OBJECT ORIENTED PROGRAMMING</h1>
-<p>Nama : Uliya Gumpari</p>
-<p>NIM : 251410008</p>
-<p>IPK : 3,87</p>
+<p>Uliya Gumpari | 251410008 | IPK 3,87</p>
 </header>
 
 <section>
 <h2>1. Pengertian OOP</h2>
 <p>
-Object Oriented Programming (OOP) adalah paradigma pemrograman
-yang berfokus pada objek. Objek dibuat berdasarkan class
-yang memiliki atribut (data) dan method (fungsi).
-Pendekatan ini membuat program lebih terstruktur,
-modular, dan mudah dikembangkan.
+Object Oriented Programming adalah paradigma pemrograman yang
+berorientasi pada objek. Pendekatan ini membuat program lebih
+terstruktur, modular, dan mudah dikembangkan.
 </p>
 </section>
 
 <section>
 <h2>2. Konsep Dasar OOP</h2>
 <p>
-Konsep dasar dalam OOP meliputi:
-Class, Object, Encapsulation, Inheritance, dan Polymorphism.
-Konsep-konsep ini membantu dalam membangun sistem yang
-lebih fleksibel dan reusable.
+Konsep utama OOP meliputi Class, Object, Encapsulation,
+Inheritance, dan Polymorphism. Konsep ini membantu membangun
+sistem yang fleksibel dan reusable.
 </p>
 </section>
 
 <section>
 <h2>3. Class Sederhana (Car)</h2>
-<p>
-Class adalah blueprint untuk membuat objek.
-Pada contoh ini dibuat class Car dengan atribut dan method.
-</p>
-<a href="https://gist.github.com/uliykk1008/26742bdfe9ccde1c2400d9d5e3c40eff" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Contoh pembuatan class dasar.</p>
+<a href="https://dartpad.dev/?id=26742bdfe9ccde1c2400d9d5e3c40eff" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>4. Object Instantiation</h2>
-<p>
-Object instantiation adalah proses membuat objek dari class.
-Objek dibuat menggunakan constructor.
-</p>
-<a href="https://gist.github.com/uliykk1008/82c181bd4ca39d448c0f07e21ac95284" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Proses membuat objek dari class.</p>
+<a href="https://dartpad.dev/?id=82c181bd4ca39d448c0f07e21ac95284" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>5. Constructor</h2>
-<p>
-Constructor adalah method khusus yang digunakan
-untuk menginisialisasi nilai awal suatu objek.
-Constructor dipanggil saat objek dibuat.
-</p>
-<a href="https://gist.github.com/uliykk1008/80005406bce540c3c8f297767a56bc78" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Constructor digunakan untuk inisialisasi nilai objek.</p>
+<a href="https://dartpad.dev/?id=80005406bce540c3c8f297767a56bc78" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>6. Practice Class Mahasiswa</h2>
-<p>
-Pada praktik ini dibuat class Mahasiswa
-yang memiliki atribut nama, nim, dan ipk
-serta method untuk menampilkan data.
-</p>
-<a href="https://gist.github.com/uliykk1008/439107faeb99c8eacd21c700a221ac26" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Implementasi class Mahasiswa beserta method.</p>
+<a href="https://dartpad.dev/?id=439107faeb99c8eacd21c700a221ac26" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>7. Encapsulation</h2>
-<p>
-Encapsulation adalah teknik menyembunyikan data
-dengan membuat atribut private dan mengaksesnya
-melalui getter dan setter.
-Tujuannya untuk menjaga keamanan data.
-</p>
-<a href="https://gist.github.com/uliykk1008/6eae1d6adfb21db2802fdb1cff6b8145" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Penerapan getter dan setter untuk melindungi data.</p>
+<a href="https://dartpad.dev/?id=6eae1d6adfb21db2802fdb1cff6b8145" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>8. This Keyword</h2>
-<p>
-Keyword <b>this</b> digunakan untuk merujuk pada
-atribut milik class itu sendiri agar tidak terjadi
-kesalahan referensi variabel.
-</p>
-<a href="https://gist.github.com/uliykk1008/a59becbbf41a03e8e27904b0a24e343d" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Penggunaan keyword this untuk referensi atribut class.</p>
+<a href="https://dartpad.dev/?id=a59becbbf41a03e8e27904b0a24e343d" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>9. Product Class</h2>
-<p>
-Contoh penggunaan final, required,
-dan named parameter pada constructor
-untuk membuat class lebih aman dan fleksibel.
-</p>
-<a href="https://gist.github.com/uliykk1008/9733f144ec599e694748f6e39ccbbb21" target="_blank">
-<button>Lihat & Run Source Code</button>
+<p>Penggunaan final dan named parameter constructor.</p>
+<a href="https://dartpad.dev/?id=9733f144ec599e694748f6e39ccbbb21" target="_blank">
+<button>Run Program</button>
 </a>
 </section>
 
 <section>
 <h2>10. Kesimpulan</h2>
 <p>
-Dari pembelajaran ini dapat disimpulkan bahwa
-OOP membantu membuat program lebih terstruktur,
-mudah dipelihara, dan scalable.
-Konsep class, object, constructor,
-encapsulation, dan this keyword
-memegang peran penting dalam membangun sistem yang baik.
+OOP membantu pengembangan program menjadi lebih terstruktur,
+mudah dipelihara, dan scalable melalui penggunaan class
+dan object.
 </p>
 </section>
 
 <section>
 <h2>11. Quiz Bonus</h2>
 <p>
-Buatlah class Buku dengan atribut judul dan penulis,
-serta method tampilkan() untuk menampilkan data buku.
+Buatlah class Buku dengan atribut judul dan penulis
+serta method tampilkan().
 </p>
 </section>
 
 <footer>
-© 2025 - Uliya Gumpari ✨ Tema Angkasa Elegant
+© 2025 - Uliya Gumpari ✨ Premium Cinematic Edition
 </footer>
+
+<script>
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    const top=sec.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
