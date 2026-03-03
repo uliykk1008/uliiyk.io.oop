@@ -9,190 +9,213 @@
 body{
   margin:0;
   font-family:Segoe UI, sans-serif;
-  background:#0f1117;
-  color:#eee;
-  line-height:1.7;
+  color:white;
+  background:black;
+  overflow-x:hidden;
+}
+
+/* Background Animasi Bintang */
+.stars{
+  width:1px;
+  height:1px;
+  background:white;
+  position:absolute;
+  animation:animStar 50s linear infinite;
+  box-shadow:
+  200px 300px white, 400px 600px white,
+  800px 200px white, 1200px 500px white,
+  600px 900px white, 1500px 300px white;
+}
+
+@keyframes animStar{
+  from{transform:translateY(0px);}
+  to{transform:translateY(-2000px);}
 }
 
 header{
   text-align:center;
-  padding:90px 20px;
-  background:linear-gradient(135deg,#1f2230,#2c2f45);
+  padding:100px 20px;
+  background:linear-gradient(180deg,#000814,#001d3d);
 }
 
 h1{
-  color:#d4af37;
-  letter-spacing:2px;
+  color:#ffd60a;
+  letter-spacing:3px;
 }
 
 section{
-  padding:70px 12%;
+  padding:80px 12%;
+  background:rgba(0,0,0,0.85);
   border-bottom:1px solid #222;
 }
 
 h2{
-  color:#d4af37;
-  margin-bottom:15px;
+  color:#ffd60a;
 }
 
 button{
   padding:12px 25px;
-  background:#d4af37;
   border:none;
-  border-radius:30px;
+  border-radius:25px;
+  background:#ffd60a;
   font-weight:bold;
   cursor:pointer;
   transition:0.3s;
 }
 
 button:hover{
-  background:#f1c75b;
-  box-shadow:0 0 15px #d4af37;
+  background:#fff;
+  box-shadow:0 0 20px #ffd60a;
 }
 
-a{
-  text-decoration:none;
-}
+a{text-decoration:none;}
 
 footer{
   text-align:center;
   padding:40px;
-  color:#888;
+  background:#000814;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
+<div class="stars"></div>
+
 <header>
-<h1>OBJECT ORIENTED PROGRAMMING (OOP)</h1>
-<p><b>Nama:</b> Uliya Gumpari</p>
-<p><b>NIM:</b> 251410008</p>
-<p><b>IPK:</b> 3,87</p>
+<h1>OBJECT ORIENTED PROGRAMMING</h1>
+<p>Nama : Uliya Gumpari</p>
+<p>NIM : 251410008</p>
+<p>IPK : 3,87</p>
 </header>
 
 <section>
 <h2>1. Pengertian OOP</h2>
 <p>
 Object Oriented Programming (OOP) adalah paradigma pemrograman
-yang berorientasi pada objek. Dalam OOP, program disusun
-menggunakan class dan object sehingga lebih terstruktur,
-mudah dikembangkan, dan mudah dipelihara.
+yang berfokus pada objek. Objek dibuat berdasarkan class
+yang memiliki atribut (data) dan method (fungsi).
+Pendekatan ini membuat program lebih terstruktur,
+modular, dan mudah dikembangkan.
 </p>
 </section>
 
 <section>
 <h2>2. Konsep Dasar OOP</h2>
 <p>
-Konsep utama dalam OOP meliputi:
-<ul>
-<li>Class</li>
-<li>Object</li>
-<li>Encapsulation</li>
-<li>Inheritance</li>
-<li>Polymorphism</li>
-</ul>
+Konsep dasar dalam OOP meliputi:
+Class, Object, Encapsulation, Inheritance, dan Polymorphism.
+Konsep-konsep ini membantu dalam membangun sistem yang
+lebih fleksibel dan reusable.
 </p>
 </section>
 
 <section>
 <h2>3. Class Sederhana (Car)</h2>
 <p>
-Class merupakan blueprint untuk membuat objek.
-Pada contoh ini dibuat class Car.
+Class adalah blueprint untuk membuat objek.
+Pada contoh ini dibuat class Car dengan atribut dan method.
 </p>
 <a href="https://gist.github.com/uliykk1008/26742bdfe9ccde1c2400d9d5e3c40eff" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>4. Object Instantiation</h2>
 <p>
-Object dibuat dari class menggunakan constructor.
+Object instantiation adalah proses membuat objek dari class.
+Objek dibuat menggunakan constructor.
 </p>
 <a href="https://gist.github.com/uliykk1008/82c181bd4ca39d448c0f07e21ac95284" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>5. Constructor</h2>
 <p>
-Constructor digunakan untuk menginisialisasi nilai awal
-dari suatu objek ketika dibuat.
+Constructor adalah method khusus yang digunakan
+untuk menginisialisasi nilai awal suatu objek.
+Constructor dipanggil saat objek dibuat.
 </p>
 <a href="https://gist.github.com/uliykk1008/80005406bce540c3c8f297767a56bc78" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>6. Practice Class Mahasiswa</h2>
 <p>
-Contoh implementasi class Mahasiswa dengan atribut,
-constructor, dan method.
+Pada praktik ini dibuat class Mahasiswa
+yang memiliki atribut nama, nim, dan ipk
+serta method untuk menampilkan data.
 </p>
 <a href="https://gist.github.com/uliykk1008/439107faeb99c8eacd21c700a221ac26" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>7. Encapsulation</h2>
 <p>
-Encapsulation adalah proses pembungkusan data dengan
-membuat atribut menjadi private dan mengaksesnya
-menggunakan getter dan setter.
+Encapsulation adalah teknik menyembunyikan data
+dengan membuat atribut private dan mengaksesnya
+melalui getter dan setter.
+Tujuannya untuk menjaga keamanan data.
 </p>
 <a href="https://gist.github.com/uliykk1008/6eae1d6adfb21db2802fdb1cff6b8145" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>8. This Keyword</h2>
 <p>
-Keyword <b>this</b> digunakan untuk merujuk pada atribut
-yang dimiliki oleh class.
+Keyword <b>this</b> digunakan untuk merujuk pada
+atribut milik class itu sendiri agar tidak terjadi
+kesalahan referensi variabel.
 </p>
 <a href="https://gist.github.com/uliykk1008/a59becbbf41a03e8e27904b0a24e343d" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>9. Product Class</h2>
 <p>
-Contoh penggunaan final, required, dan named parameter
-dalam constructor.
+Contoh penggunaan final, required,
+dan named parameter pada constructor
+untuk membuat class lebih aman dan fleksibel.
 </p>
 <a href="https://gist.github.com/uliykk1008/9733f144ec599e694748f6e39ccbbb21" target="_blank">
-<button>Lihat Source Code</button>
+<button>Lihat & Run Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>10. Kesimpulan</h2>
 <p>
-Dari materi yang telah dipelajari dapat disimpulkan bahwa
-OOP membantu membuat program lebih terstruktur dan modular
-melalui penggunaan class dan object. Konsep encapsulation,
-constructor, dan penggunaan keyword seperti <b>this</b>
-membuat kode lebih aman dan terorganisir.
+Dari pembelajaran ini dapat disimpulkan bahwa
+OOP membantu membuat program lebih terstruktur,
+mudah dipelihara, dan scalable.
+Konsep class, object, constructor,
+encapsulation, dan this keyword
+memegang peran penting dalam membangun sistem yang baik.
 </p>
 </section>
 
 <section>
 <h2>11. Quiz Bonus</h2>
 <p>
-Buatlah class Buku dengan atribut judul dan penulis
+Buatlah class Buku dengan atribut judul dan penulis,
 serta method tampilkan() untuk menampilkan data buku.
 </p>
 </section>
 
 <footer>
-© 2025 - Uliya Gumpari ✨ Elegant Version
+© 2025 - Uliya Gumpari ✨ Tema Angkasa Elegant
 </footer>
 
 </body>
