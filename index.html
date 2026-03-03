@@ -11,12 +11,12 @@ body{
   font-family:Segoe UI, sans-serif;
   background:#0f1117;
   color:#eee;
-  line-height:1.6;
+  line-height:1.7;
 }
 
 header{
   text-align:center;
-  padding:80px 20px;
+  padding:90px 20px;
   background:linear-gradient(135deg,#1f2230,#2c2f45);
 }
 
@@ -26,35 +26,32 @@ h1{
 }
 
 section{
-  padding:60px 10%;
+  padding:70px 12%;
   border-bottom:1px solid #222;
 }
 
 h2{
   color:#d4af37;
-}
-
-pre{
-  background:#000;
-  padding:20px;
-  border-radius:10px;
-  color:#00ff99;
-  overflow:auto;
+  margin-bottom:15px;
 }
 
 button{
-  padding:10px 20px;
+  padding:12px 25px;
   background:#d4af37;
   border:none;
-  border-radius:20px;
+  border-radius:30px;
   font-weight:bold;
   cursor:pointer;
-  margin-top:15px;
+  transition:0.3s;
 }
 
 button:hover{
   background:#f1c75b;
   box-shadow:0 0 15px #d4af37;
+}
+
+a{
+  text-decoration:none;
 }
 
 footer{
@@ -69,51 +66,43 @@ footer{
 
 <header>
 <h1>OBJECT ORIENTED PROGRAMMING (OOP)</h1>
-<p>Nama : Uliya Gumpari</p>
-<p>NIM : 251410008</p>
-<p>IPK : 3,87</p>
+<p><b>Nama:</b> Uliya Gumpari</p>
+<p><b>NIM:</b> 251410008</p>
+<p><b>IPK:</b> 3,87</p>
 </header>
 
 <section>
 <h2>1. Pengertian OOP</h2>
 <p>
 Object Oriented Programming (OOP) adalah paradigma pemrograman
-yang berorientasi pada objek. Objek dibuat berdasarkan class
-yang memiliki atribut dan method.
+yang berorientasi pada objek. Dalam OOP, program disusun
+menggunakan class dan object sehingga lebih terstruktur,
+mudah dikembangkan, dan mudah dipelihara.
 </p>
 </section>
 
 <section>
 <h2>2. Konsep Dasar OOP</h2>
 <p>
-Konsep utama OOP meliputi:
-- Class
-- Object
-- Encapsulation
-- Inheritance
-- Polymorphism
+Konsep utama dalam OOP meliputi:
+<ul>
+<li>Class</li>
+<li>Object</li>
+<li>Encapsulation</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+</ul>
 </p>
 </section>
 
 <section>
 <h2>3. Class Sederhana (Car)</h2>
 <p>
-Class adalah blueprint untuk membuat objek.
+Class merupakan blueprint untuk membuat objek.
+Pada contoh ini dibuat class Car.
 </p>
-<pre>
-class Car {
-  String model;
-  String color;
-
-  Car(this.model, this.color);
-
-  void start() {
-    print("Mobil dinyalakan");
-  }
-}
-</pre>
-<a href="LINK_DARTPAD_CAR" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/26742bdfe9ccde1c2400d9d5e3c40eff" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
@@ -122,97 +111,84 @@ class Car {
 <p>
 Object dibuat dari class menggunakan constructor.
 </p>
-<pre>
-void main() {
-  Car mobil = Car("Sedan", "Hitam");
-  mobil.start();
-}
-</pre>
-<a href="LINK_DARTPAD_OBJECT" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/82c181bd4ca39d448c0f07e21ac95284" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>5. Constructor</h2>
 <p>
-Constructor digunakan untuk menginisialisasi nilai awal objek.
+Constructor digunakan untuk menginisialisasi nilai awal
+dari suatu objek ketika dibuat.
 </p>
-<pre>
-Car(this.model, this.color);
-</pre>
-<a href="LINK_DARTPAD_CONSTRUCTOR" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/80005406bce540c3c8f297767a56bc78" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
-<h2>6. Practice: Class Mahasiswa</h2>
+<h2>6. Practice Class Mahasiswa</h2>
 <p>
-Contoh implementasi class Mahasiswa dengan atribut dan method.
+Contoh implementasi class Mahasiswa dengan atribut,
+constructor, dan method.
 </p>
-<pre>
-class Mahasiswa {
-  String nama;
-  String nim;
-  double ipk;
-
-  Mahasiswa(this.nama, this.nim, this.ipk);
-}
-</pre>
-<a href="LINK_DARTPAD_MAHASISWA" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/439107faeb99c8eacd21c700a221ac26" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>7. Encapsulation</h2>
 <p>
-Encapsulation adalah pembungkusan data dengan cara membuat
-atribut menjadi private dan menggunakan getter/setter.
+Encapsulation adalah proses pembungkusan data dengan
+membuat atribut menjadi private dan mengaksesnya
+menggunakan getter dan setter.
 </p>
-<a href="LINK_DARTPAD_ENCAPSULATION" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/6eae1d6adfb21db2802fdb1cff6b8145" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>8. This Keyword</h2>
 <p>
-Keyword this digunakan untuk merujuk ke atribut milik class.
+Keyword <b>this</b> digunakan untuk merujuk pada atribut
+yang dimiliki oleh class.
 </p>
-<a href="LINK_DARTPAD_THIS" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/a59becbbf41a03e8e27904b0a24e343d" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>9. Product Class</h2>
 <p>
-Contoh penggunaan named parameter dan final.
+Contoh penggunaan final, required, dan named parameter
+dalam constructor.
 </p>
-<a href="LINK_DARTPAD_PRODUCT" target="_blank">
-<button>Run Program</button>
+<a href="https://gist.github.com/uliykk1008/9733f144ec599e694748f6e39ccbbb21" target="_blank">
+<button>Lihat Source Code</button>
 </a>
 </section>
 
 <section>
 <h2>10. Kesimpulan</h2>
 <p>
-OOP membantu membuat program lebih terstruktur,
-mudah dipelihara, dan scalable melalui penggunaan class dan object.
+Dari materi yang telah dipelajari dapat disimpulkan bahwa
+OOP membantu membuat program lebih terstruktur dan modular
+melalui penggunaan class dan object. Konsep encapsulation,
+constructor, dan penggunaan keyword seperti <b>this</b>
+membuat kode lebih aman dan terorganisir.
 </p>
 </section>
 
 <section>
 <h2>11. Quiz Bonus</h2>
 <p>
-Buatlah class Buku dengan atribut judul dan penulis,
-serta method tampilkan().
+Buatlah class Buku dengan atribut judul dan penulis
+serta method tampilkan() untuk menampilkan data buku.
 </p>
-<a href="LINK_DARTPAD_QUIZ" target="_blank">
-<button>Run Jawaban Quiz</button>
-</a>
 </section>
 
 <footer>
