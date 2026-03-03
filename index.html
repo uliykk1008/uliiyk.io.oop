@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Laporan OOP Dart - Uliya Gumpari</title>
+<title>Laporan OOP - Uliya Gumpari</title>
 
 <style>
 body{
   margin:0;
-  font-family:Segoe UI,sans-serif;
+  font-family:Segoe UI, sans-serif;
   background:#0f1117;
-  color:white;
-  text-align:center;
+  color:#eee;
+  line-height:1.6;
 }
 
 header{
+  text-align:center;
   padding:80px 20px;
+  background:linear-gradient(135deg,#1f2230,#2c2f45);
 }
 
 h1{
@@ -23,29 +25,41 @@ h1{
   letter-spacing:2px;
 }
 
-.menu{
-  margin-top:40px;
+section{
+  padding:60px 10%;
+  border-bottom:1px solid #222;
 }
 
-a{
-  display:inline-block;
-  margin:15px;
-  padding:15px 25px;
+h2{
+  color:#d4af37;
+}
+
+pre{
+  background:#000;
+  padding:20px;
+  border-radius:10px;
+  color:#00ff99;
+  overflow:auto;
+}
+
+button{
+  padding:10px 20px;
   background:#d4af37;
-  color:#111;
-  text-decoration:none;
-  border-radius:30px;
+  border:none;
+  border-radius:20px;
   font-weight:bold;
-  transition:0.3s;
+  cursor:pointer;
+  margin-top:15px;
 }
 
-a:hover{
+button:hover{
   background:#f1c75b;
   box-shadow:0 0 15px #d4af37;
 }
 
 footer{
-  margin-top:60px;
+  text-align:center;
+  padding:40px;
   color:#888;
 }
 </style>
@@ -54,17 +68,152 @@ footer{
 <body>
 
 <header>
-<h1>LAPORAN OOP DART</h1>
+<h1>OBJECT ORIENTED PROGRAMMING (OOP)</h1>
 <p>Nama : Uliya Gumpari</p>
-<p>NIM  : 251410008</p>
-<p>IPK  : 3,87</p>
+<p>NIM : 251410008</p>
+<p>IPK : 3,87</p>
 </header>
 
-<div class="menu">
-<a href="car.html">Materi Class Car</a>
-<a href="mahasiswa.html">Materi Class Mahasiswa</a>
-<a href="product.html">Materi Class Product</a>
-</div>
+<section>
+<h2>1. Pengertian OOP</h2>
+<p>
+Object Oriented Programming (OOP) adalah paradigma pemrograman
+yang berorientasi pada objek. Objek dibuat berdasarkan class
+yang memiliki atribut dan method.
+</p>
+</section>
+
+<section>
+<h2>2. Konsep Dasar OOP</h2>
+<p>
+Konsep utama OOP meliputi:
+- Class
+- Object
+- Encapsulation
+- Inheritance
+- Polymorphism
+</p>
+</section>
+
+<section>
+<h2>3. Class Sederhana (Car)</h2>
+<p>
+Class adalah blueprint untuk membuat objek.
+</p>
+<pre>
+class Car {
+  String model;
+  String color;
+
+  Car(this.model, this.color);
+
+  void start() {
+    print("Mobil dinyalakan");
+  }
+}
+</pre>
+<a href="LINK_DARTPAD_CAR" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>4. Object Instantiation</h2>
+<p>
+Object dibuat dari class menggunakan constructor.
+</p>
+<pre>
+void main() {
+  Car mobil = Car("Sedan", "Hitam");
+  mobil.start();
+}
+</pre>
+<a href="LINK_DARTPAD_OBJECT" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>5. Constructor</h2>
+<p>
+Constructor digunakan untuk menginisialisasi nilai awal objek.
+</p>
+<pre>
+Car(this.model, this.color);
+</pre>
+<a href="LINK_DARTPAD_CONSTRUCTOR" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>6. Practice: Class Mahasiswa</h2>
+<p>
+Contoh implementasi class Mahasiswa dengan atribut dan method.
+</p>
+<pre>
+class Mahasiswa {
+  String nama;
+  String nim;
+  double ipk;
+
+  Mahasiswa(this.nama, this.nim, this.ipk);
+}
+</pre>
+<a href="LINK_DARTPAD_MAHASISWA" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>7. Encapsulation</h2>
+<p>
+Encapsulation adalah pembungkusan data dengan cara membuat
+atribut menjadi private dan menggunakan getter/setter.
+</p>
+<a href="LINK_DARTPAD_ENCAPSULATION" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>8. This Keyword</h2>
+<p>
+Keyword this digunakan untuk merujuk ke atribut milik class.
+</p>
+<a href="LINK_DARTPAD_THIS" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>9. Product Class</h2>
+<p>
+Contoh penggunaan named parameter dan final.
+</p>
+<a href="LINK_DARTPAD_PRODUCT" target="_blank">
+<button>Run Program</button>
+</a>
+</section>
+
+<section>
+<h2>10. Kesimpulan</h2>
+<p>
+OOP membantu membuat program lebih terstruktur,
+mudah dipelihara, dan scalable melalui penggunaan class dan object.
+</p>
+</section>
+
+<section>
+<h2>11. Quiz Bonus</h2>
+<p>
+Buatlah class Buku dengan atribut judul dan penulis,
+serta method tampilkan().
+</p>
+<a href="LINK_DARTPAD_QUIZ" target="_blank">
+<button>Run Jawaban Quiz</button>
+</a>
+</section>
 
 <footer>
 © 2025 - Uliya Gumpari ✨ Elegant Version
