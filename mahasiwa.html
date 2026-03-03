@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Materi Class Car</title>
+<style>
+body{font-family:Segoe UI;background:#111;color:#eee;padding:40px;}
+h1{color:#d4af37;}
+pre{background:#000;padding:20px;border-radius:10px;color:#00ff99;}
+button{
+  padding:10px 20px;
+  background:#d4af37;
+  border:none;
+  border-radius:20px;
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>Materi Class dan Object (Car)</h1>
+
+<h3>Penjelasan</h3>
+<p>
+Class adalah blueprint untuk membuat objek.
+Pada contoh ini dibuat class Car dengan atribut model dan color
+serta method start().
+</p>
+
+<h3>Source Code</h3>
+<pre>
+class Car {
+  String model;
+  String color;
+
+  Car(this.model, this.color);
+
+  void start() {
+    print("Mobil $model warna $color dinyalakan.");
+  }
+}
+
+void main() {
+  Car mobil = Car("Sedan", "Hitam");
+  mobil.start();
+}
+</pre>
+
+<h3>Run Program</h3>
+<a href="LINK_DARTPAD_CAR" target="_blank">
+<button>Run di DartPad</button>
+</a>
+
+<h3>Kesimpulan</h3>
+<p>
+Class digunakan untuk membentuk objek sehingga program lebih terstruktur
+dan mudah dikembangkan.
+</p>
+
+</body>
+</html>
