@@ -1,291 +1,551 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OOP Report - Uliya Gumpari</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OOP Report - Uliya Gumpari</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&family=Orbitron:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-  font-family:'Poppins',sans-serif;
-  color:white;
-  background:black;
-  overflow-x:hidden;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: #000814;
+      overflow-x: hidden;
+    }
 
-/* Galaxy Background */
-body::before{
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background:
-  radial-gradient(circle at 20% 30%,#001d3d,transparent 40%),
-  radial-gradient(circle at 80% 70%,#3a0ca3,transparent 40%),
-  radial-gradient(circle at 50% 50%,#000814,transparent 60%);
-  animation:moveGalaxy 50s linear infinite;
-  z-index:-2;
-}
+    /* Galaxy Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at 20% 30%, #001d3d, transparent 40%),
+        radial-gradient(circle at 80% 70%, #3a0ca3, transparent 40%),
+        radial-gradient(circle at 50% 50%, #000814, transparent 60%);
+      z-index: -2;
+    }
 
-@keyframes moveGalaxy{
-  from{transform:translate(0,0);}
-  to{transform:translate(-30%,-30%);}
-}
+    /* Moving Stars Effect */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image:
+        radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+        radial-gradient(2px 2px at 30% 50%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 80%, #ffd60a, transparent),
+        radial-gradient(2px 2px at 90% 10%, #fff, transparent);
+      background-size: 500px 500px;
+      animation: moveStars 100s linear infinite;
+    }
 
-/* Glass Section */
-section{
-  width:85%;
-  margin:100px auto;
-  padding:60px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px);
-  border-radius:25px;
-  box-shadow:0 0 40px rgba(255,215,0,0.1);
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
+    @keyframes moveStars {
+      from {
+        transform: translateY(0);
+      }
 
-section.show{
-  opacity:1;
-  transform:translateY(0);
-}
+      to {
+        transform: translateY(-500px);
+      }
+    }
 
-header{
-  text-align:center;
-  padding:140px 20px 80px;
-}
+    header {
+      text-align: center;
+      padding: 140px 20px 80px;
+    }
 
-header h1{
-  font-size:42px;
-  letter-spacing:3px;
-  color:#ffd60a;
-  margin-bottom:20px;
-}
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      letter-spacing: 5px;
+      color: #ffd60a;
+      text-shadow: 0 0 30px rgba(255, 214, 10, 0.4);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
 
-h2{
-  color:#ffd60a;
-  margin-bottom:20px;
-}
+    header p {
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+      color: #00f5ff;
+      font-family: 'Orbitron', sans-serif;
+    }
 
-p{
-  font-weight:300;
-  line-height:1.9;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-button{
-  margin-top:25px;
-  padding:12px 35px;
-  border:none;
-  border-radius:30px;
-  background:#ffd60a;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
-}
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 60px;
+      margin-bottom: 100px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-button:hover{
-  background:white;
-  box-shadow:0 0 25px #ffd60a;
-}
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Modal Popup */
-.modal{
-  display:none;
-  position:fixed;
-  z-index:999;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(6px);
-}
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ffd60a;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      position: relative;
+      display: inline-block;
+    }
 
-.modal-content{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:90%;
-  height:85%;
-  background:black;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 0 40px #ffd60a55;
-}
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50%;
+      height: 4px;
+      background: #00f5ff;
+      box-shadow: 0 0 10px #00f5ff;
+    }
 
-.modal-content iframe{
-  width:100%;
-  height:100%;
-  border:none;
-}
+    p {
+      font-weight: 300;
+      line-height: 2;
+      margin-bottom: 30px;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+    }
 
-.close{
-  position:absolute;
-  right:20px;
-  top:10px;
-  font-size:35px;
-  color:white;
-  cursor:pointer;
-  z-index:1000;
-}
+    ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
 
-footer{
-  text-align:center;
-  padding:60px;
-  color:#aaa;
-}
-</style>
+    ul li {
+      margin-bottom: 15px;
+      padding-left: 35px;
+      position: relative;
+      color: #e0e0e0;
+    }
+
+    ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #ffd60a;
+      font-size: 1.2rem;
+    }
+
+    /* CODE BOX STYLING */
+    .code-container {
+      margin: 30px 0;
+      background: #050505;
+      border: 1px solid #333;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .code-header {
+      background: #111;
+      padding: 10px 20px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.7rem;
+      color: #666;
+      border-bottom: 1px solid #222;
+      text-transform: uppercase;
+    }
+
+    pre {
+      padding: 25px;
+      overflow-x: auto;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #00ff88;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 16px 45px;
+      border: none;
+      border-radius: 40px;
+      background: #ffd60a;
+      color: black;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.4s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    button:hover {
+      background: white;
+      box-shadow: 0 0 40px #ffd60a;
+      transform: scale(1.05);
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(15px);
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 85%;
+      background: black;
+      border: 2px solid #ffd60a;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(255, 214, 10, 0.3);
+    }
+
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      font-size: 45px;
+      color: #ffd60a;
+      cursor: pointer;
+      z-index: 1001;
+      font-weight: 900;
+    }
+
+    footer {
+      text-align: center;
+      padding: 100px 20px;
+      color: #666;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+    }
+
+    .highlight {
+      color: #00f5ff;
+      font-weight: 600;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<h1>OBJECT ORIENTED PROGRAMMING</h1>
-<p>Uliya Gumpari | 251410008</p>
-</header>
+  <div class="stars"></div>
 
-<section>
-<h2>1. Pengertian OOP</h2>
-<p>
-Object Oriented Programming adalah paradigma pemrograman yang berorientasi pada objek.
-Pendekatan ini membuat program lebih terstruktur, modular, serta mudah dikembangkan
-karena setiap bagian program dibangun dalam bentuk objek.
-</p>
-</section>
+  <header>
+    <h1>DART OOP LAB</h1>
+    <p>Uliya Gumpari | 251410008 | Kelas: SI2A</p>
+  </header>
 
-<section>
-<h2>2. Konsep Dasar OOP</h2>
-<p>
-Konsep utama OOP meliputi Class, Object, Encapsulation, Inheritance, dan Polymorphism.
-Konsep-konsep ini membantu dalam membangun sistem yang fleksibel, reusable,
-dan lebih mudah dipelihara.
-</p>
-</section>
+  <div class="container">
 
-<section>
-<h2>3. Class Sederhana (Car)</h2>
-<p>
-Class adalah blueprint untuk membuat objek. Pada contoh ini,
-class Car memiliki atribut model dan color serta method start()
-untuk menjalankan aksi.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=9733f144ec599e694748f6e39ccbbb21')">Run Program</button>
-</section>
+    <section>
+      <h2>01. Pengertian OOP</h2>
+      <p>
+        <span class="highlight">Object Oriented Programming (OOP)</span> adalah paradigma pemrograman yang berorientasi
+        pada objek. Pendekatan ini membuat program lebih terstruktur, modular, serta mudah dikembangkan karena setiap
+        bagian program dibangun dalam bentuk objek dunia nyata.
+      </p>
+    </section>
 
-<section>
-<h2>4. Object Instantiation</h2>
-<p>
-Object instantiation adalah proses membuat objek dari class.
-Objek dibuat menggunakan constructor dan dapat langsung digunakan.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=a59becbbf41a03e8e27904b0a24e343d')">Run Program</button>
-</section>
+    <section>
+      <h2>02. Konsep Dasar</h2>
+      <ul>
+        <li><span class="highlight">Class</span>: Blueprint atau cetakan untuk membuat objek.</li>
+        <li><span class="highlight">Object</span>: Instance nyata yang tercipta dari sebuah class.</li>
+        <li><span class="highlight">Attribute</span>: Representasi data melalui variabel di dalam class.</li>
+        <li><span class="highlight">Method</span>: Logika fungsional atau fungsi di dalam class.</li>
+      </ul>
+    </section>
 
-<section>
-<h2>5. Constructor</h2>
-<p>
-Constructor adalah method khusus yang otomatis dijalankan
-ketika objek dibuat untuk menginisialisasi nilai atribut.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=6eae1d6adfb21db2802fdb1cff6b8145')">Run Program</button>
-</section>
+    <section>
+      <h2>03. Class Sederhana (Car)</h2>
+      <p>Class adalah blueprint untuk membuat objek. Pada contoh ini, class Car memiliki atribut model dan color serta
+        method start() dan stop().</p>
 
-<section>
-<h2>6. Practice Class Mahasiswa</h2>
-<p>
-Implementasi class Mahasiswa dengan atribut nama, nim, dan ipk.
-Terdapat method untuk menampilkan data serta menentukan predikat.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=439107faeb99c8eacd21c700a221ac26')">Run Program</button>
-</section>
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
 
-<section>
-<h2>7. Encapsulation</h2>
-<p>
-Encapsulation adalah teknik menyembunyikan data dengan membuat atribut private
-dan mengaksesnya melalui getter dan setter untuk menjaga keamanan data.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=80005406bce540c3c8f297767a56bc78')">Run Program</button>
-</section>
+class Car {
+  String? model;
+  String? color;
 
-<section>
-<h2>8. This Keyword</h2>
-<p>
-Keyword <b>this</b> digunakan untuk merujuk pada atribut milik class
-ketika terjadi kesamaan nama antara parameter dan atribut.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=82c181bd4ca39d448c0f07e21ac95284')">Run Program</button>
-</section>
+  void start() {
+    print('Car started!');
+  }
 
-<section>
-<h2>9. Product Class</h2>
-<p>
-Class Product menunjukkan penggunaan final untuk membuat atribut tidak dapat diubah
-serta penggunaan named parameter agar lebih fleksibel.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=26742bdfe9ccde1c2400d9d5e3c40eff')">Run Program</button>
-</section>
+  void stop() {
+    print('Car stopped!');
+  }
+}</code></pre>
+      </div>
 
-<section>
-<h2>10. Kesimpulan</h2>
-<p>
-OOP membantu pengembangan program menjadi lebih terstruktur,
-mudah dipelihara, dan scalable melalui penggunaan class dan object.
-Dengan konsep encapsulation dan constructor, keamanan serta keteraturan kode lebih terjaga.
-</p>
-</section>
+      <button onclick="openModal('https://dartpad.dev/?id=9733f144ec599e694748f6e39ccbbb21')">Run Program</button>
+    </section>
 
-<section>
-<h2>3. Class Sederhana (Burung)</h2>
-<p>
-Class adalah blueprint atau cetakan untuk membuat objek.
-Pada contoh ini, class Burung memiliki atribut nama dan warna.
-Terdapat method terbang() yang menggambarkan perilaku burung.
-Melalui contoh ini dapat dipahami bagaimana atribut dan method
-bekerja dalam sebuah class.
-</p>
-<button onclick="openModal('https://dartpad.dev/?id=c82d66fb93d07a40f7786263a6c7b121')">Run Program</button>
-</section>
+    <section>
+      <h2>04. Object Instantiation</h2>
+      <p>Proses menciptakan objek konkret dari class Car yang telah didefinisikan sebelumnya menggunakan fungsi main().
+      </p>
 
-<footer>
-© 2025 - Uliya Gumpari ✨
-</footer>
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <iframe id="dartFrame" src=""></iframe>
-  </div>
-</div>
+void main() {
+  Car myCar = Car();
+  
+  myCar.model = "Sedan";
+  myCar.color = "Merah";
 
-<script>
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-  sections.forEach(sec=>{
-    const top=sec.getBoundingClientRect().top;
-    if(top<window.innerHeight-100){
-      sec.classList.add("show");
-    }
+  myCar.start();
+  myCar.stop();
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=a59becbbf41a03e8e27904b0a24e343d')">Run Program</button>
+    </section>
+
+    <section>
+      <h2>05. Constructor</h2>
+      <p>Constructor memudahkan kita mengisi nilai atribut langsung saat objek diciptakan (inisialisasi).</p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Car {
+  String? model;
+  String? color;
+
+  Car(this.model, this.color);
+
+  void start() {
+    print('Engine Online: $model');
+  }
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=6eae1d6adfb21db2802fdb1cff6b8145')">Run Program</button>
+    </section>
+
+    <section>
+      <h2>06. Practice: Mahasiswa</h2>
+      <p>Implementasi objek Mahasiswa untuk mengelola data akademik secara terstruktur.</p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Mahasiswa {
+  String nama;
+  String nim;
+  double ipk;
+
+  Mahasiswa(this.nama, this.nim, this.ipk);
+
+  void tampilkanData() {
+    print('NAMA : $nama | NIM : $nim | IPK : $ipk');
+  }
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=439107faeb99c8eacd21c700a221ac26')">Run Program</button>
+    </section>
+
+    <section>
+      <h2>07. Encapsulation</h2>
+      <p>Teknik keamanan data dengan menyembunyikan akses langsung ke variabel internal menggunakan prefix underscore.
+      </p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Person {
+  String _name;
+  int age;
+
+  Person(this._name, this.age);
+
+  void setName(String name) => _name = name;
+  String getName() => _name;
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=80005406bce540c3c8f297767a56bc78')">Run Program</button>
+    </section>
+
+    <section>
+      <h2>08. This Keyword</h2>
+      <p>Rujukan eksplisit ke instance class saat ini untuk menghindari kebingungan nama antara field dan parameter.</p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Product {
+  String nama;
+  Product(this.nama);
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=82c181bd4ca39d448c0f07e21ac95284')">Run Program</button>
+    </section>
+
+    <section>
+      <h2>09. Product Class</h2>
+      <p>Penggunaan Named Parameters dan Required untuk menciptakan objek yang lebih deskriptif dan aman.</p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Produk {
+  final String id, nama;
+  final double harga;
+
+  Produk({
+    required this.id,
+    required this.nama,
+    required this.harga,
   });
-});
+}</code></pre>
+      </div>
 
-function openModal(link){
-  document.getElementById("modal").style.display="block";
-  document.getElementById("dartFrame").src=link;
-}
+      <button onclick="openModal('https://dartpad.dev/?id=26742bdfe9ccde1c2400d9d5e3c40eff')">Run Program</button>
+    </section>
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-  document.getElementById("dartFrame").src="";
-}
-</script>
+    <section>
+      <h2>10. Kesimpulan</h2>
+      <p>Pemrograman Berorientasi Objek di Dart memberikan fondasi yang kuat untuk membangun aplikasi yang bersih,
+        modular, dan siap dikembangkan lebih jauh.</p>
+    </section>
+
+    <section>
+      <h2>11. Bonus: Burung Class</h2>
+      <p>Contoh tambahan penggunaan class untuk memodelkan makhluk hidup seperti burung dengan perilaku terbang.</p>
+
+      <div class="code-container">
+        <div class="code-header">DART SOURCE CODE</div>
+        <pre><code>// Nama   : Uliya Gumpari
+// Nim    : 251410008
+// Kelas  : SI2A
+
+class Burung {
+  String nama;
+  String warna;
+
+  Burung(this.nama, this.warna);
+
+  void terbang() {
+    print('$nama sedang terbang!');
+  }
+}</code></pre>
+      </div>
+
+      <button onclick="openModal('https://dartpad.dev/?id=c82d66fb93d07a40f7786263a6c7b121')">Run Program</button>
+    </section>
+
+  </div>
+
+  <footer>
+    © 2025 - ULIYA GUMPARI ✨
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <iframe id="dartFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Reveal Animations
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Modal Logic
+    function openModal(link) {
+      document.getElementById("modal").style.display = "block";
+      document.getElementById("dartFrame").src = link;
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+      document.getElementById("dartFrame").src = "";
+      document.body.style.overflow = "auto";
+    }
+
+    window.onclick = function (e) {
+      if (e.target == document.getElementById("modal")) closeModal();
+    }
+  </script>
 
 </body>
+
 </html>
