@@ -483,18 +483,27 @@ class Produk {
       <div class="code-container">
         <div class="code-header">DART SOURCE CODE</div>
         <pre><code>// Nama   : Uliya Gumpari
-// Nim    : 251410008
-// Kelas  : SI2A
+// Nama    : Uliya Gumpari
+// Nim     : 251410008
+// kelas   : SI2A
 
-class Burung {
+class Hewan {
   String nama;
-  String warna;
 
-  Burung(this.nama, this.warna);
+  Hewan(this.nama);
 
-  void terbang() {
-    print('$nama sedang terbang!');
+  void bersuara() {
+    print("$nama sedang bersuara...");
   }
+}
+
+void main() {
+  var hewan = Hewan("Sapi");
+
+  print("Nama Hewan: ${hewan.nama}");
+  hewan.bersuara();
+}
+
 }</code></pre>
       </div>
 
